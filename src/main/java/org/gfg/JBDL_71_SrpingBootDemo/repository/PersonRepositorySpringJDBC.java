@@ -8,11 +8,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+//USING SPRING JDBC
+//DOES NOT REQUIRE DBBean.java AS WE DONT NEED SQL CONNECTION OBJECT NOW.
 @Repository
 @Slf4j
 public class PersonRepositorySpringJDBC implements IPersonRepository {
@@ -39,6 +41,13 @@ public class PersonRepositorySpringJDBC implements IPersonRepository {
 
     @Override
     public Integer createPerson(Person person) {
-        return null;
+        log.info("IN CREATE PERSONS FOR JDBC");
+        String sql = "INSERT INTO person (id, name) VALUES (?, ?)";
+
+        if (person.getName() == null || person.getId() == null) {
+            throw new IllegalArgumentException("Mandatory parameters are null");
+        }
+        log.info("Inserting student with id: {}, name: {}", person.getId(), person.getName());
+        return jdbcTemplate.update(sql, person.getId(), person.getName());
     }
 }

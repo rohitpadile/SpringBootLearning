@@ -12,7 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+//WRITING WITHOUT JDBCTemplate - USING SQL CONNECTION.
+//Prepared statements are used to not get attacked by SQL injections.
 @Repository
 @Slf4j
 public class PersonRepository implements IPersonRepository {

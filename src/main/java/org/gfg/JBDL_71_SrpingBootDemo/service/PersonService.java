@@ -13,7 +13,8 @@ import java.util.List;
 public class PersonService {
 
     IPersonRepository ipersonRepository;
-
+//There are two classes that implement this interface. So to specify which one
+//we use @Qualifier("className")
     @Autowired
     PersonService(@Qualifier("personRepositorySpringJDBC") IPersonRepository ipersonRepository) {
         this.ipersonRepository = ipersonRepository;
