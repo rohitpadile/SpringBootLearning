@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Jbdl71SrpingBootDemoApplication {
 
 	public static void main(String[] args) {
-		System.out.println("ASDFG");
+		System.out.println("Starting Application by Rohit Padile");
 		SpringApplication.run(Jbdl71SrpingBootDemoApplication.class, args);
 	}
 
